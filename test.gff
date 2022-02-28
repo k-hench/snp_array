@@ -1,0 +1,2 @@
+##gff-version 3;
+two	.	exon	150	300	.	+	.	ID=only_hit_exon;
