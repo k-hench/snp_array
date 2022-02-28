@@ -1,5 +1,7 @@
 
-# mockup SNP filtering for SNP-array
+# mock-up SNP filtering for SNP-array
+
+The whole thing is run from the command line - for the genome-wide data it might make sense to split the data by linkage group /chromosome.
 
 1) Detect SNPs that are embedded in a invariant stretch of a minimum width.
 (Check out the `interactive_check.R` for an idea how the scripts works.)
@@ -25,3 +27,5 @@ vcftools --vcf test.vcf \
 ```sh
 bedtools intersect -a snps_af_filtered.vcf -b test.gff
 ```
+
+---
