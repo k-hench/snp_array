@@ -16,10 +16,10 @@ Rscript --vanilla filter_stretch.R test.vcf 40
 
 ```sh
 vcftools --vcf test.vcf \
-   --positions snps_before_and_after_40bp.tsv \
-	 --maf 0.3 \
-	 --stdout \
-	 --recode > snps_af_filtered.vcf
+	--positions snps_before_and_after_40bp.tsv \
+	--maf 0.3 \
+	--stdout \
+	--recode > snps_af_filtered.vcf
 ```
 
 3) Use `bedtools` to filter for *within exon* only SNPs.
