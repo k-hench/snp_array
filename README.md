@@ -29,3 +29,27 @@ bedtools intersect -a snps_af_filtered.vcf -b test.gff
 ```
 
 ---
+
+Each filtering step should remove some SNPs with finally only a single one remaining:
+
+```sh
+cat snps_before_and_after_40bp.tsv
+#> #CHROM	position
+#> one	146
+#> one	249
+#> two	146
+#> two	249
+```
+
+```sh
+cat snps_af_filtered.vcf | grep -v '^##'
+#> #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample_nr1	sample_nr2
+#> one	146	.	A	T	100	.	.	GT:DP	0/1:18	0/1:18
+#> one	249	.	G	A	100	.	.	GT:DP	0/1:62	0/1:62
+#> two	249	.	G	A	100	.	.	GT:DP	0/1:62	0/1:62
+```
+
+```sh
+bedtools intersect -a snps_af_filtered.vcf -b test.gff
+#> two	249	.	G	A	100	.	.	GT:DP	0/1:62	0/1:62
+```
